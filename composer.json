@@ -1,0 +1,21 @@
+{
+    "name": "uf2/joseportugal",
+    "description": "intervention_exercise",
+    "type": "project",
+    "license": "free",
+    "autoload": {
+        "psr-4": {
+            "Uf2\\Joseportugal\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Japoivvb",
+            "email": "jose.portugal@stucom.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "intervention/image": "^2.7"
+    }
+}
