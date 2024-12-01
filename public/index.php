@@ -12,6 +12,7 @@
             <option value="bright" selected>Bright</option>
             <option value="fit">Fit</option>
             <option value="sharpen">Sharpen</option>
+            <option value="gamma">Gamma</option>
         </select>
         <br>
         <h3>Choose grade</h3>
