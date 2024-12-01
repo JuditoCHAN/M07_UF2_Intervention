@@ -11,7 +11,7 @@
             <option value="blur" selected>Blur</option>
             <option value="bright" selected>Bright</option>
             <option value="fit">Fit</option>
-            <option value="sharpem">Sharpen</option>
+            <option value="sharpen">Sharpen</option>
         </select>
         <br>
         <h3>Choose grade</h3>
