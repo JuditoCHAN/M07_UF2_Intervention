@@ -33,7 +33,7 @@ if (is_file("../resources/inputImg/" . $_FILES["imageFile"]["name"])) {
         try{
             switch ($_POST["optionImage"]) {
                 case "blur":
-                    $image0bject->blur($_POST["grade"]);
+                    $imageObject->blur($_POST["grade"]);
                     break;
                 case "bright":
                     $imageObject->brightness($_POST["grade"]);
