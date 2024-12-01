@@ -1,10 +1,13 @@
 <?php
 require_once '../vendor/autoload.php';
-error_reporting(ENT_IGNORE);
-//print_r($_FILES["imageFile"]);
+use Intervention\Image\ImageManager;
+
+error_reporting(E_ALL);
+print_r($_FILES["imageFile"]);
+@ini_set('display errors', 1); //funcion que permite cambiar la config de directivas de php.ini, en este caso de 'display errors'
 
 // create object ImageManager
-$managerImage = new \Intervention\Image\ImageManager();
+$managerImage = new ImageManager();
 
 // instance object to manipulate
 $imageObject = $managerImage->make($_FILES["imageFile"]["tmp_name"]);
@@ -29,23 +32,25 @@ if (is_file("../resources/inputImg/" . $_FILES["imageFile"]["name"])) {
 
         try{
             switch ($_POST["optionImage"]) {
-            case "blur":
-            $image0bject->blur($_POST["grade"]);
-            break;
-            case "bright":
-            $imageObject->brightness($_POST["grade"]);
-            $imageObject->contrast($_POST["grade"]);
-            break;
-            case "fit":
-            $imageObject->fit($_POST["grade"]);
-            case "contrast":
-            $imageObject->contrast($_POST["grade"]);
-            case "pixelate":
-            $imageObject->pixelate($_POST["grade"]);
-            break;
-            case "sharpen":
-            $imageObject->sharpen($_POST["grade"]);
-            break;                
+                case "blur":
+                    $image0bject->blur($_POST["grade"]);
+                    break;
+                case "bright":
+                    $imageObject->brightness($_POST["grade"]);
+                    $imageObject->contrast($_POST["grade"]);
+                    break;
+                case "fit":
+                    $imageObject->fit($_POST["grade"]);
+                    break;
+                case "contrast":
+                    $imageObject->contrast($_POST["grade"]);
+                    break;
+                case "pixelate":
+                    $imageObject->pixelate($_POST["grade"]);
+                    break;
+                case "sharpen":
+                    $imageObject->sharpen($_POST["grade"]);
+                    break;                
             }
             
         } catch(Throwable $e){
@@ -61,6 +66,7 @@ if (is_file("../resources/inputImg/" . $_FILES["imageFile"]["name"])) {
             </tr>
         </table>
 
+        <!-- Form metido dentro del body del HTML, antes estaba fuera -->
         <FORM method="POST" action="../public/index.php">
             <input type="submit" value="back to home">
         </FORM>
