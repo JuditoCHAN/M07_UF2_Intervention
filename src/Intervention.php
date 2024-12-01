@@ -60,10 +60,12 @@ if (is_file("../resources/inputImg/" . $_FILES["imageFile"]["name"])) {
                 </td>
             </tr>
         </table>
+
+        <FORM method="POST" action="../public/index.php">
+            <input type="submit" value="back to home">
+        </FORM>
     </BODY>
-    <FORM method="POST" action="../public/index.php">
-        <input type="submit" value="back to home">
-    </FORM>
+    
 
     </HTML>
 <?php
