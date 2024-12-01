@@ -6,6 +6,12 @@ error_reporting(E_ALL);
 print_r($_FILES["imageFile"]);
 @ini_set('display errors', 1); //funcion que permite cambiar la config de directivas de php.ini, en este caso de 'display errors'
 
+//verificamos si el archivo se ha subido sin errores
+if ($_FILES["imageFile"]["error"] !== UPLOAD_ERR_OK) {
+    echo "Error al cargar el archivo: " . $_FILES["imageFile"]["error"];
+    exit;
+}
+
 // create object ImageManager
 $managerImage = new ImageManager();
 
@@ -50,7 +56,26 @@ if (is_file("../resources/inputImg/" . $_FILES["imageFile"]["name"])) {
                     break;
                 case "sharpen":
                     $imageObject->sharpen($_POST["grade"]);
-                    break;                
+                    break;
+                case "gamma":
+                    switch($_POST["grade"]) {
+                        case "20":
+                            $imageObject->gamma(2);
+                            break;
+                        case "40":
+                            $imageObject->gamma(4);
+                            break;
+                        case "60":
+                            $imageObject->gamma(6);
+                            break;
+                        case "80":
+                            $imageObject->gamma(8);
+                            break;
+                        case "100":
+                            $imageObject->gamma(10);
+                            break;
+                    }
+                    break;               
             }
             
         } catch(Throwable $e){
